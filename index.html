@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport," content="width=device-width, initial-scale=1.0">
-        <title>feathery flight</title>
-        <link rel="stylesheet" href="style.css">
-        <script src="script.js"></script>
-    </head>
-    <body>
-        <canvas id="board"></canvas>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport," content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Feathery Flight</title>
+    <script src="script.js"></script>
+    <script src="obstacle.js"></script>
+    <script src="player.js"></script>
+  </head>
+  <body>
+    <!-- #game container -->
+    <div id="game-container">
+      <div>
+        <h2>Perks</h2>
+        <p>Score: <span id="score">0</span></p>
+        <p>Lives: <span id="lives">5</span></p>
+      </div>
 
-    </body>
+      <!-- #game-screen is hidden using CSS style to: none -->
+      <div id="game-screen"></div>
+
+      <!-- #game-end is hidden using CSS style to: none -->
+      <div id="game-end">
+        <!-- <img src=""/> -->
+        <h1>Game Over</h1>
+        <br />
+        <button id="restart-button">Restart</button>
+      </div>
+    </div>
+  </body>
 </html>
