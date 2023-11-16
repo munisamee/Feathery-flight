@@ -5,29 +5,35 @@
     <meta name="viewport," content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>Feathery Flight</title>
-    <script src="script.js"></script>
-    <script src="obstacle.js"></script>
-    <script src="player.js"></script>
   </head>
   <body>
-    <!-- #game container -->
-    <div id="game-container">
-      <div>
-        <h2>Perks</h2>
-        <p>Score: <span id="score">0</span></p>
-        <p>Lives: <span id="lives">5</span></p>
+    <main>
+      <div id="game-intro">
+        <button id="start-button">Start Game</button>
       </div>
+      <!-- #game container -->
+      <div id="game-container">
+        <div>
+          <h2>Perks</h2>
+          <p>Score: <span id="score">0</span></p>
+          <p>Lives: <span id="lives">5</span></p>
+        </div>
 
-      <!-- #game-screen is hidden using CSS style to: none -->
-      <div id="game-screen"></div>
+        <!-- #game-screen is hidden using CSS style to: none -->
+        <div id="game-screen"></div>
 
-      <!-- #game-end is hidden using CSS style to: none -->
-      <div id="game-end">
-        <!-- <img src=""/> -->
-        <h1>Game Over</h1>
-        <br />
-        <button id="restart-button">Restart</button>
+        <!-- #game-end is hidden using CSS style to: none -->
+        <div id="game-end">
+          <!-- <img src=""/> -->
+          <h1>Game Over</h1>
+          <br />
+          <button id="restart-button">Restart</button>
+        </div>
       </div>
-    </div>
+    </main>
+    <script src="script.js"></script>
+    <script src="obstacles.js"></script>
+    <script type="text/javascript" src="game.js"></script>
+    <script type="text/javascript" src="bird.js"></script>
   </body>
 </html>

@@ -1,7 +1,8 @@
+console.log("HEhe");
 class Game {
   // code to be added
   constructor() {
-    this.startScreen = document.getElementById("game-intro");
+    //this.startScreen = document.getElementById("game-intro");
     this.gameScreen = document.getElementById("game-screen");
     this.gameEndScreen = document.getElementById("game-end");
     this.player = new Player(
@@ -12,8 +13,6 @@ class Game {
       100,
       "./images/bird.png"
     ); //  new Player()
-    this.width = 600;
-    this.height = 600;
     this.obstacles = []; // new Obstacle()
     this.score = 0;
     this.lives = 5;
@@ -21,13 +20,9 @@ class Game {
   }
 
   start() {
-    this.gameScreen.style.width = `${this.width}px`;
-    this.gameScreen.style.height = `${this.height}px`;
-    this.startScreen.style.display = "none";
+    //this.startScreen.style.display = "none";
     this.gameScreen.style.display = "block";
     this.gameLoop();
-    // Car start at a specific position
-    // Obstacles are going to be at a specific position as well
   }
 
   restart() {
@@ -86,8 +81,8 @@ class Game {
     }
     // Create a new obstacle based on a random probability
     // when there is no other obstacles on the screen
-    if (Math.random() > 0.98 && this.obstacles.length < 1) {
-      this.obstacles.push(new Obstacle(this.gameScreen));
+    if (Math.random() > 0.99 && this.obstacles.length < 1) {
+      this.obstacles.push(new Obstacles(this.gameScreen));
     }
   }
 
