@@ -1,86 +1,81 @@
-// bird
-let birdWidth = 300;
-let birdHeight = 196;
-let birdX = birdWidth / 8;
-let birdY = birdHeight / 2;
-let birdImg;
 
-let bird = {
-  x: birdX,
-  y: birdY,
-  width: birdWidth,
-  height: birdHeight,
-};
+
 
 class Player {
-  // to be defined later on
-  constructor(gameScreen, left, top, width, height, imgSrc) {
-    this.gameScreen = gameScreen;
-    this.left = left;
-    this.top = top;
-    this.width = width;
-    this.height = height;
-    this.directionX = 0;
-    this.directionY = 0;
-    this.element = document.createElement("img");
-
-    this.element.src = imgSrc;
-    this.element.style.position = "absolute";
-    this.element.style.width = `${width}px`;
-    this.element.style.height = `${height}px`;
-    this.element.style.top = `${top}px`;
-    this.element.style.left = `${left}px`;
-
-    this.gameScreen.appendChild(this.element);
-  }
-
-  move() {
-    // Update player's car position based on directionX and directionY
-    this.left += this.directionX;
-    this.top += this.directionY;
-
-    if (this.left < 10) {
-      this.left = 10;
+    constructor(gameScreen, right, top, width, height, imgSrc) {
+      this.gameScreen = gameScreen;
+      this.right = right;
+      this.top = top;
+      this.width = width;
+      this.height = height;
+      this.directionY = 0;
+      this.element = document.createElement('img');
+  
+      this.element.src = imgSrc;
+      this.element.style.position = 'absolute';
+      this.element.style.width = `${width}px`;
+      this.element.style.height = `${height}px`;
+      this.element.style.top = `${top}px`;
+      this.element.style.right = `${right}px`;
+  
+      this.gameScreen.appendChild(this.element);
+      
     }
-
-    // handles top side
-    if (this.top < 10) {
-      this.top = 10;
+  
+    move() {
+      this.top += this.directionY;
+  
+      if (this.top < 10) {
+        this.top = 10;
+      }
+  
+      if (this.top > this.gameScreen.offsetHeight - this.height - 10) {
+        this.top = this.gameScreen.offsetHeight - this.height - 10;
+      }
+  
+      this.updatePosition();
     }
-
-    // handles right hand side
-    if (this.left > this.gameScreen.offsetWidth - this.width - 10) {
-      this.left = this.gameScreen.offsetWidth - this.width - 10;
+  
+    updatePosition() {
+      this.element.style.top = `${this.top}px`;
+      console.log('player position', this.element.getBoundingClientRect());
     }
-
-    // handles bottom side
-    if (this.top > this.gameScreen.offsetHeight - this.height - 10) {
-      this.top = this.gameScreen.offsetHeight - this.height - 10;
-    }
-
-    // Update the player's car position on the screen
-    this.updatePosition();
-  }
-
-  updatePosition() {
-    this.element.style.left = `${this.left}px`;
-    this.element.style.top = `${this.top}px`;
-    console.log("player position", this.element.getBoundingClientRect());
-  }
-
-  didCollide(obstacle) {
-    const playerRect = this.element.getBoundingClientRect();
-    const obstacleRect = obstacle.element.getBoundingClientRect();
-
-    if (
-      playerRect.left < obstacleRect.right &&
-      playerRect.right > obstacleRect.left &&
-      playerRect.top < obstacleRect.bottom &&
-      playerRect.bottom > obstacleRect.top
-    ) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-}
+  //************* */
+    didCollide(obstacle) {
+      const playerRect = this.element.getBoundingClientRect();
+      const obstacleRect = obstacle.element.getBoundingClientRect();
+      
+  
+      
+        // Define an offset to reduce the collision distance
+        const collisionOffset =  180; // Adjust this value as needed
+      
+        if (
+          playerRect.left + collisionOffset < obstacleRect.right &&
+          playerRect.right - collisionOffset > obstacleRect.left &&
+          playerRect.top + collisionOffset < obstacleRect.bottom &&
+          playerRect.bottom - collisionOffset > obstacleRect.top
+        ) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+      ////////////////////////////
+        didCollide(feather) {
+      const playerRect = this.element.getBoundingClientRect();
+      const featherRect = feather.element.getBoundingClientRect();
+  
+      const collisionOffset = 180; // Adjust this value as needed
+  
+      if (
+        playerRect.left + collisionOffset < featherRect.right &&
+        playerRect.right - collisionOffset > featherRect.left &&
+        playerRect.top + collisionOffset < featherRect.bottom &&
+        playerRect.bottom - collisionOffset > featherRect.top
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+      }}

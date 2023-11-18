@@ -1,39 +1,61 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport," content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="style.css" />
-    <title>Feathery Flight</title>
+    <title>Feathery flight</title>
+    
+    
+    <script src="script.js"></script>
+    <script src="bird.js"></script>
+    <script src="obstacle.js"></script>
+    <script src="Mygame.js"></script>
+    <script src="bonus.js"></script> 
+     
+    <!-- <script src="jsfile.js"></script>  -->
+    
+    
+    
   </head>
   <body>
     <main>
+      <!-- #game-intro is initially shown on the game start screen -->
       <div id="game-intro">
-        <button id="start-button">Start Game</button>
+        <img src="images/game-intro.png" alt="game intro">
+        <button id ="start-button">Start</button>
       </div>
-      <!-- #game container -->
+
+
       <div id="game-container">
-        <div>
-          <h2>Perks</h2>
+        <div id="stat">
+          <h2>Stats</h2>
           <p>Score: <span id="score">0</span></p>
-          <p>Lives: <span id="lives">5</span></p>
+          <p>Lives: <span id="lives">3</span></p>
         </div>
-
-        <!-- #game-screen is hidden using CSS style to: none -->
+        <!-- #game-screen is initially hidden using CSS style display: none -->
         <div id="game-screen"></div>
-
-        <!-- #game-end is hidden using CSS style to: none -->
-        <div id="game-end">
-          <!-- <img src=""/> -->
-          <h1>Game Over</h1>
-          <br />
-          <button id="restart-button">Restart</button>
-        </div>
       </div>
+      <!-- game-end.html -->
+      <div id="game-end" style="display: none;">
+        
+      <h1>Game Over!</h1>
+      <!-- <p>Your Score: <span id="final-score">0</span></p> -->
+      <p>Press the restart button to play again!</p>
+      <button id="restart-button">Restart</button>
+      </div>
+
+
+      <!-- #game-end is initially hidden using CSS style display: none -->
+      <div id="game-end">
+        <img src="" alt="" class="game-over" />
+        <h1>Game Over</h1>
+        <br />
+        <button id="restart-button">Restart</button>
+      </div> 
     </main>
-    <script src="script.js"></script>
-    <script src="obstacles.js"></script>
-    <script type="text/javascript" src="game.js"></script>
-    <script type="text/javascript" src="bird.js"></script>
+
   </body>
 </html>
